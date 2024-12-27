@@ -1,0 +1,94 @@
+######################## ALL FIELDS ARE REQUIRED UNLESS OTHERWISE NOTED #########################
+
+######################################### TASK METADATA #########################################
+############################ Will be displayed in the desktop node ##############################
+
+## Task Name ##
+# Maximum 24 characters.
+task_name: "SMART Gaming Task"
+
+## Task Author ##
+author: "Smart Open Network"
+
+# Task Description Markdown ##
+# If you specify a markdown file, the description field will be ignored.
+# Markdown is recommended for better formatting.
+markdownDescriptionPath: "./TaskDescription.md"
+
+## Task Description ##
+# Ignored if you specify a markdown file.
+description: "Validate public gaming engagement data."
+
+## Repository URL ##
+# Must be public for whitelisted tasks.
+repositoryUrl: "https://github.com/hakikicode/SMART-Gaming-Task"
+
+## Image URL ##
+# 230x86 pixels.
+imageUrl: "https://raw.githubusercontent.com/hakikicode/SMART-Task/refs/heads/master/smart%20gaming%20task.png"
+
+## Info URL ##
+infoUrl: "https://ipfs.io/ipfs/QmZKCxY6EECLkqyrFPRTRWiL8JCPEvLwvgFQxrpjfkU2VZ"
+
+####################################### TASK CONFIGURATION ######################################
+
+## Task Executable Network ##
+# IPFS or DEVELOPMENT
+task_executable_network: "IPFS"
+
+## Task Audit Program ##
+task_audit_program: "dist/main.js"
+
+## Round Time ##
+round_time: 1500
+
+## Audit Window ##
+audit_window: 600
+
+## Submission Window ##
+submission_window: 600
+
+## Minimum Stake Amount ##
+minimum_stake_amount: 0.1
+
+## Task Bounty Type ##
+task_type: "KPL"
+
+## Token Mint Address (ONLY for KPL tasks) ##
+token_type: "HK8STMDTos4QFocyEADxwdXBrN13DCB9AcwLXsmvBthh"
+
+## Total Bounty Amount ##
+total_bounty_amount: 1000000
+
+## Bounty Amount per Round ##
+bounty_amount_per_round: 0.1
+
+## Allowed Failed Distributions ##
+allowed_failed_distributions: 3
+
+## Space ##
+space: 2.0
+
+## Requirement Tags ##
+requirementsTags:
+  - type: CPU
+    value: "4-core"
+  - type: RAM
+    value: "5 GB"
+  - type: STORAGE
+    value: "5 GB"
+  - type: TASK_VARIABLE
+
+## Tags ##
+tags: ["Gaming Engagement", "Data Validation"]
+
+# Environment ##
+environment: "PRODUCTION"
+
+#################################### FOR UPDATING TASKS ONLY ####################################
+
+## Old Task ID ##
+task_id: "2cmwQeXPjLDqc3UJ5q72otxySsvXxYDqYzNTeWMbuWx5"
+
+## Migration Description ##
+migrationDescription: "SMART Gaming Task validates engagement in public gaming communities and distributes rewards for accurate validation."
