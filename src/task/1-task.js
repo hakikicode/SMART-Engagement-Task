@@ -1,21 +1,42 @@
 import { namespaceWrapper } from "@_koii/namespace-wrapper";
 import axios from "axios";
 
-const CHANNEL_NAME = "TelegramTips"; // Replace with your desired public channel
-const TG_JSON_API = `https://tg.i-c-a.su/json/${CHANNEL_NAME}`;
-
 export async function task(roundNumber) {
   try {
     console.log(`EXECUTE TASK FOR ROUND ${roundNumber}`);
 
-    // Fetch the latest 50 posts from the channel
-    const response = await axios.get(`${TG_JSON_API}?limit=50`);
-    const channelData = response.data;
+    const channels = ["breakingmash", "TelegramTips", "tapswapaiA"];
+    const engagementData = {};
 
-    // Store the channel data in namespace storage
-    await namespaceWrapper.storeSet(`round_${roundNumber}_channelData`, JSON.stringify(channelData));
-    console.log(`Stored data for round ${roundNumber}`);
+    for (const channel of channels) {
+      try {
+        console.log(`Fetching data for channel: ${channel}`);
+        const response = await axios.get(`https://tg.i-c-a.su/json/${channel}?limit=50`);
+        if (response.data && response.data.messages) {
+          const posts = response.data.messages;
+          engagementData[channel] = posts.map((post) => ({
+            id: post.id,
+            date: post.date,
+            likes: post.reactions?.like || 0,
+            comments: post.replies?.count || 0,
+            views: post.views || 0,
+          }));
+        }
+      } catch (error) {
+        console.error(`Error fetching data for channel ${channel}:`, error.message);
+        // Skip restricted or invalid channels
+        continue;
+      }
+    }
+
+    if (Object.keys(engagementData).length === 0) {
+      console.error("No valid engagement data found.");
+      return;
+    }
+
+    await namespaceWrapper.storeSet(`round_${roundNumber}_engagementData`, JSON.stringify(engagementData));
+    console.log(`Stored engagement data for round ${roundNumber}`);
   } catch (error) {
-    console.error("EXECUTE TASK ERROR:", error.message);
+    console.error("TASK EXECUTION ERROR:", error);
   }
 }

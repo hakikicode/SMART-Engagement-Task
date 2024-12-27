@@ -1,5 +1,3 @@
-const SLASH_PERCENT = 0.7;
-
 export function distribution(submitters, bounty, roundNumber) {
   console.log(`MAKE DISTRIBUTION LIST FOR ROUND ${roundNumber}`);
 
@@ -7,13 +5,13 @@ export function distribution(submitters, bounty, roundNumber) {
   const approvedSubmitters = [];
 
   for (const submitter of submitters) {
-    if (submitter.votes > 0) {
-      approvedSubmitters.push(submitter.publicKey);
+    if (submitter.votes === 0) {
+      distributionList[submitter.publicKey] = 0;
     } else if (submitter.votes < 0) {
-      const slashedStake = Math.floor(submitter.stake * SLASH_PERCENT);
+      const slashedStake = Math.floor(submitter.stake * 0.7); // Slash 70%
       distributionList[submitter.publicKey] = -slashedStake;
     } else {
-      distributionList[submitter.publicKey] = 0;
+      approvedSubmitters.push(submitter.publicKey);
     }
   }
 
@@ -22,10 +20,11 @@ export function distribution(submitters, bounty, roundNumber) {
     return distributionList;
   }
 
-  const reward = Math.floor(bounty / approvedSubmitters.length);
-  approvedSubmitters.forEach((candidate) => {
-    distributionList[candidate] = reward;
+  const rewardPerNode = Math.floor(bounty / approvedSubmitters.length) || 0;
+  approvedSubmitters.forEach((key) => {
+    distributionList[key] = rewardPerNode;
   });
 
+  console.log("FINAL DISTRIBUTION LIST:", distributionList);
   return distributionList;
 }

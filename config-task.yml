@@ -17,11 +17,11 @@ markdownDescriptionPath: "./TaskDescription.md"
 
 ## Task Description ##
 # Ignored if you specify a markdown file.
-description: "Validate public gaming engagement data."
+description: "Monitor engagement across multiple gaming channels by analyzing likes, comments, and reactions for fair rewards."
 
 ## Repository URL ##
 # Must be public for whitelisted tasks.
-repositoryUrl: "https://github.com/hakikicode/SMART-Gaming-Task"
+repositoryUrl: "https://github.com/hakikicode/SMART-Engagement-Task"
 
 ## Image URL ##
 # 230x86 pixels.
@@ -80,7 +80,7 @@ requirementsTags:
   - type: TASK_VARIABLE
 
 ## Tags ##
-tags: ["Gaming Engagement", "Data Validation"]
+tags: ["Gaming", "Engagement Metrics", "Community Data"]
 
 # Environment ##
 environment: "PRODUCTION"

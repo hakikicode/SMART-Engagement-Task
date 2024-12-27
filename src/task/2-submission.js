@@ -5,21 +5,18 @@ export async function submission(roundNumber) {
   try {
     console.log(`MAKE SUBMISSION FOR ROUND ${roundNumber}`);
 
-    // Retrieve stored data for the current round
-    const data = await namespaceWrapper.storeGet(`round_${roundNumber}_channelData`);
-    
-    if (!data) {
-      console.warn("No data found for submission.");
-      return "{}";
+    const engagementData = await namespaceWrapper.storeGet(`round_${roundNumber}_engagementData`);
+    if (!engagementData) {
+      console.error(`No engagement data found for round ${roundNumber}`);
+      return null;
     }
 
-    // Generate a hash for the data (keccak256 or sha256)
-    const hash = crypto.createHash("sha256").update(data).digest("hex");
+    // Generate a hash for submission
+    const hash = crypto.createHash("sha256").update(engagementData).digest("hex");
     console.log(`Generated hash for submission: ${hash}`);
-
-    // Return the hash (fits within the 512-byte limit)
     return hash;
   } catch (error) {
-    console.error("MAKE SUBMISSION ERROR:", error.message);
+    console.error("MAKE SUBMISSION ERROR:", error);
+    return null;
   }
 }

@@ -2,24 +2,24 @@ import { namespaceWrapper } from "@_koii/namespace-wrapper";
 import crypto from "crypto";
 
 export async function audit(submission, roundNumber, submitterKey) {
-  console.log(`AUDIT SUBMISSION FOR ROUND ${roundNumber} from ${submitterKey}`);
   try {
-    // Retrieve stored data for the round
-    const storedData = await namespaceWrapper.storeGet(`round_${roundNumber}_channelData`);
-    
+    console.log(`AUDIT SUBMISSION FOR ROUND ${roundNumber} from ${submitterKey}`);
+
+    // Retrieve stored engagement data for validation
+    const storedData = await namespaceWrapper.storeGet(`round_${roundNumber}_engagementData`);
     if (!storedData) {
-      console.warn("No stored data found for audit.");
+      console.error(`No stored data found for round ${roundNumber}`);
       return false;
     }
 
-    // Generate a hash of the stored data
+    // Generate hash of stored data
     const expectedHash = crypto.createHash("sha256").update(storedData).digest("hex");
     console.log(`Expected hash: ${expectedHash}, Submitted hash: ${submission}`);
 
-    // Compare the hashes
-    return submission === expectedHash;
+    // Compare hashes
+    return expectedHash === submission;
   } catch (error) {
-    console.error("AUDIT ERROR:", error.message);
+    console.error("AUDIT SUBMISSION ERROR:", error);
     return false;
   }
 }
