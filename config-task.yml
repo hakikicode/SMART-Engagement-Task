@@ -5,7 +5,7 @@
 
 ## Task Name ##
 # Maximum 24 characters.
-task_name: "SMART Gaming Task"
+task_name: "SMART Engagements Task"
 
 ## Task Author ##
 author: "Smart Open Network"
@@ -55,13 +55,13 @@ minimum_stake_amount: 0.1
 task_type: "KPL"
 
 ## Token Mint Address (ONLY for KPL tasks) ##
-token_type: "HK8STMDTos4QFocyEADxwdXBrN13DCB9AcwLXsmvBthh"
+token_type: "AnYJ5HBwzLu5B5gctBHVJ2uLAXStwJGbGUDyYFH6wUQT"
 
 ## Total Bounty Amount ##
 total_bounty_amount: 1000000
 
 ## Bounty Amount per Round ##
-bounty_amount_per_round: 0.1
+bounty_amount_per_round: 0.9
 
 ## Allowed Failed Distributions ##
 allowed_failed_distributions: 3
@@ -88,7 +88,7 @@ environment: "PRODUCTION"
 #################################### FOR UPDATING TASKS ONLY ####################################
 
 ## Old Task ID ##
-task_id: "2cmwQeXPjLDqc3UJ5q72otxySsvXxYDqYzNTeWMbuWx5"
+task_id: ""
 
 ## Migration Description ##
-migrationDescription: "SMART Gaming Task validates engagement in public gaming communities and distributes rewards for accurate validation."
+migrationDescription: "SMART Engagement Task validates engagement in public gaming communities and distributes rewards for accurate validation."

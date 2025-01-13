@@ -5,7 +5,7 @@ export async function task(roundNumber) {
   try {
     console.log(`EXECUTE TASK FOR ROUND ${roundNumber}`);
 
-    const channels = ["breakingmash", "TelegramTips", "tapswapaiA"];
+    const channels = ["breakingmash", "TelegramTips", "tapswapaiA", "battle_games_com", "OKZOO_ANN", "CatizenAnn", "gameechannel"];
     const engagementData = {};
 
     for (const channel of channels) {
