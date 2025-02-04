@@ -1,7 +1,7 @@
 import "dotenv/config";
 
 export const TASK_ID =
-  process.env.TASK_ID || "2zVhiA4HqGg8PAZFJN3zBAvybpfNWcsWiXKH3cbpbqpt";
+  process.env.TASK_ID || "9gvCLemHiM18oEMdZjcZGQSriwonDqFoCrEPjJEnbNfY";
 export const WEBPACKED_FILE_PATH =
   process.env.WEBPACKED_FILE_PATH || "../dist/main.js";
 

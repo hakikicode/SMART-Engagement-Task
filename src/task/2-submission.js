@@ -4,8 +4,12 @@ import crypto from "crypto";
 export async function submission(roundNumber) {
   try {
     console.log(`MAKE SUBMISSION FOR ROUND ${roundNumber}`);
+    console.warn(`No submissions found for round ${roundNumber}. Please check the submission logic or data store.`);
 
-    const engagementData = await namespaceWrapper.storeGet(`round_${roundNumber}_engagementData`);
+
+    const engagementData = await namespaceWrapper.storeGet(
+      `round_${roundNumber}_engagementData`
+    );
     if (!engagementData) {
       console.error(`No engagement data found for round ${roundNumber}`);
       return null;
