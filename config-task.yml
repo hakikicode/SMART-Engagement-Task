@@ -28,7 +28,7 @@ repositoryUrl: "https://github.com/hakikicode/SMART-Engagement-Task"
 imageUrl: "https://raw.githubusercontent.com/hakikicode/SMART-Task/refs/heads/master/smart%20gaming%20task.png"
 
 ## Info URL ##
-infoUrl: "https://ipfs.io/ipfs/QmZKCxY6EECLkqyrFPRTRWiL8JCPEvLwvgFQxrpjfkU2VZ"
+infoUrl: "https://www.koii.network/ocean/SMART"
 
 ####################################### TASK CONFIGURATION ######################################
 
@@ -40,16 +40,16 @@ task_executable_network: "IPFS"
 task_audit_program: "dist/main.js"
 
 ## Round Time ##
-round_time: 1500
+round_time: 3000
 
 ## Audit Window ##
-audit_window: 600
+audit_window: 1200
 
 ## Submission Window ##
-submission_window: 600
+submission_window: 1200
 
 ## Minimum Stake Amount ##
-minimum_stake_amount: 1.1
+minimum_stake_amount: 0.1
 
 ## Task Bounty Type ##
 task_type: "KPL"
@@ -58,10 +58,10 @@ task_type: "KPL"
 token_type: "AnYJ5HBwzLu5B5gctBHVJ2uLAXStwJGbGUDyYFH6wUQT"
 
 ## Total Bounty Amount ##
-total_bounty_amount: 1000000
+total_bounty_amount: 800000
 
 ## Bounty Amount per Round ##
-bounty_amount_per_round: 0.9
+bounty_amount_per_round: 1000
 
 ## Allowed Failed Distributions ##
 allowed_failed_distributions: 3
@@ -71,13 +71,15 @@ space: 2.0
 
 ## Requirement Tags ##
 requirementsTags:
+  - type: TASK_VARIABLE
+    value: 'Telegram_Username'
+    description: 'Enter your Telegram username without @.'
   - type: CPU
-    value: "4-core"
+    value: '4-core'
   - type: RAM
-    value: "5 GB"
+    value: '5 GB'
   - type: STORAGE
-    value: "5 GB"
-  - type: Telegram_Username
+    value: '5 GB'
 
 ## Tags ##
 tags: ["Gaming", "Engagement Metrics", "Community Data"]
