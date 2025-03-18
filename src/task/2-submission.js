@@ -4,8 +4,6 @@ import crypto from "crypto";
 export async function submission(roundNumber) {
   try {
     console.log(`MAKE SUBMISSION FOR ROUND ${roundNumber}`);
-    console.warn(`No submissions found for round ${roundNumber}. Please check the submission logic or data store.`);
-
 
     const engagementData = await namespaceWrapper.storeGet(
       `round_${roundNumber}_engagementData`
@@ -15,8 +13,10 @@ export async function submission(roundNumber) {
       return null;
     }
 
-    // Generate a hash for submission
-    const hash = crypto.createHash("sha256").update(engagementData).digest("hex");
+    // Normalize the data before hashing
+    const normalizedData = JSON.stringify(JSON.parse(engagementData), null, 2);
+    const hash = crypto.createHash("sha256").update(normalizedData).digest("hex");
+
     console.log(`Generated hash for submission: ${hash}`);
     return hash;
   } catch (error) {

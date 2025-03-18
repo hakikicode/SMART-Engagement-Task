@@ -1,12 +1,12 @@
-# SMART Gaming Task on SMART Open Network
+# SMART Engagement Task on SMART Open Network
 
-**SMART Gaming Task** is an initiative under the **SMART Open Network** designed to validate and reward engagement in public gaming communities. Deployed on the **Koii Network**, this task allows participants to earn **SMART tokens** by validating gaming-related data from public Telegram channels and other open APIs.
+**SMART SMART Engagement Task Task** is an initiative under the **SMART Open Network** designed to validate and reward engagement in public gaming communities. Deployed on the **Koii Network**, this task allows participants to earn **SMART tokens** by validating gaming-related data from public Telegram channels and other open APIs.
 
 ---
 
 ## Overview
 
-- **SMART Gaming Task**: Validate and reward engagement in public gaming channels.
+- **SMART Engagement Task**: Validate and reward engagement in public gaming channels.
 - **SMART Open Network**: A decentralized ecosystem promoting transparency, engagement, and rewards for users.
 - **SMART Tokens**: Utility tokens that users earn for their participation and contributions.
 
@@ -78,7 +78,7 @@ Follow [Koii Network](https://koii.network/) instructions to set up your Koii No
 
 ## Roadmap
 
-1. **Phase 1**: Deploy SMART Gaming Task to validate public gaming data.
+1. **Phase 1**: Deploy SMART Engagement Task to validate public gaming & general data.
 2. **Phase 2**: Expand engagement metrics and integrate with more public APIs.
 3. **Phase 3**: Develop additional gaming tasks and interactive features.
 4. **Phase 4**: Partner with gaming communities to enhance participation.
@@ -93,4 +93,4 @@ Follow [Koii Network](https://koii.network/) instructions to set up your Koii No
 
 ---
 
-**SMART Gaming Task** is part of the broader **SMART Open Network** initiative, fostering engagement, transparency, and rewards in the gaming community.
+**SMART Engagement Task** is part of the broader **SMART Open Network** initiative, fostering engagement, transparency, and rewards in the gaming community & beyound.

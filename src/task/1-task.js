@@ -1,11 +1,38 @@
 import { namespaceWrapper } from "@_koii/namespace-wrapper";
 import axios from "axios";
-import pLimit from "p-limit"; // Rate limiting library
+
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+async function fetchChannelData(channel, retries = 3, delayMs = 1000) {
+  try {
+    console.log(`Fetching data for channel: ${channel}`);
+    const response = await axios.get(
+      `https://tg.i-c-a.su/json/${channel}?limit=50`
+    );
+
+    if (response.data && response.data.messages) {
+      return response.data.messages.map((post) => ({
+        id: post.id,
+        date: post.date,
+        likes: post.reactions?.like || 0,
+        comments: post.replies?.count || 0,
+        views: post.views || 0,
+      }));
+    }
+  } catch (error) {
+    console.error(`Error fetching data for ${channel}: ${error.message}`);
+    if (retries > 0) {
+      console.log(`Retrying ${channel} in ${delayMs}ms...`);
+      await delay(delayMs);
+      return fetchChannelData(channel, retries - 1, delayMs * 2);
+    }
+  }
+  return [];
+}
 
 export async function task(roundNumber) {
   try {
     console.log(`EXECUTE TASK FOR ROUND ${roundNumber}`);
-
     const channels = [
       "breakingmash",
       "TelegramTips",
@@ -15,32 +42,11 @@ export async function task(roundNumber) {
       "CatizenAnn",
       "gameechannel",
     ];
-    const engagementData = {};
 
-    const limit = pLimit(5); // Limit concurrent requests to 5
-    const fetchChannelData = async (channel) => {
-      try {
-        console.log(`Fetching data for channel: ${channel}`);
-        const response = await axios.get(
-          `https://tg.i-c-a.su/json/${channel}?limit=50`
-        );
-        if (response.data && response.data.messages) {
-          const posts = response.data.messages;
-          engagementData[channel] = posts.map((post) => ({
-            id: post.id,
-            date: post.date,
-            likes: post.reactions?.like || 0,
-            comments: post.replies?.count || 0,
-            views: post.views || 0,
-          }));
-        }
-      } catch (error) {
-        console.error(`Error fetching data for channel ${channel}:`, error.message);
-      }
-    };
-
-    // Fetch data for all channels with rate limiting
-    await Promise.all(channels.map((channel) => limit(() => fetchChannelData(channel))));
+    let engagementData = {};
+    for (const channel of channels) {
+      engagementData[channel] = await fetchChannelData(channel);
+    }
 
     if (Object.keys(engagementData).length === 0) {
       console.error("No valid engagement data found.");

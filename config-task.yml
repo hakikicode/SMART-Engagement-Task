@@ -58,7 +58,7 @@ task_type: "KPL"
 token_type: "AnYJ5HBwzLu5B5gctBHVJ2uLAXStwJGbGUDyYFH6wUQT"
 
 ## Total Bounty Amount ##
-total_bounty_amount: 800000
+total_bounty_amount: 500000
 
 ## Bounty Amount per Round ##
 bounty_amount_per_round: 1000
@@ -71,15 +71,12 @@ space: 2.0
 
 ## Requirement Tags ##
 requirementsTags:
-  - type: TASK_VARIABLE
-    value: 'Telegram_Username'
-    description: 'Enter your Telegram username without @.'
   - type: CPU
-    value: '4-core'
+    value: '2-core'
   - type: RAM
-    value: '5 GB'
+    value: '1 GB'
   - type: STORAGE
-    value: '5 GB'
+    value: '1 GB'
 
 ## Tags ##
 tags: ["Gaming", "Engagement Metrics", "Community Data"]
@@ -90,7 +87,7 @@ environment: "PRODUCTION"
 #################################### FOR UPDATING TASKS ONLY ####################################
 
 ## Old Task ID ##
-task_id: ""
+task_id: "9gvCLemHiM18oEMdZjcZGQSriwonDqFoCrEPjJEnbNfY"
 
 ## Migration Description ##
 migrationDescription: "SMART Engagement Task validates engagement in public gaming communities and distributes rewards for accurate validation."

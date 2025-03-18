@@ -1,10 +1,10 @@
 # SMART Engagements Task Description
-The **SMART Engagements Task** is a decentralized validation task designed to monitor and reward engagement in public gaming communities. By leveraging blockchain transparency and Telegram's public data, participants can validate gaming-related interactions and earn **SMART tokens** for their contributions.
+The **SMART Engagements Task** is a decentralized validation task designed to monitor and reward engagement in public gaming communities & other engagements. By leveraging blockchain transparency and Telegram's public data & other public data, participants can validate gaming-related interactions and earn **SMART tokens** for their contributions.
 
 ---
 ## What Does This Task Do?
-1. **Collect Public Gaming Data**:
-   - Fetch posts, reactions, and engagement metrics from public gaming Telegram channels or other open APIs.
+1. **Collect Public & Gaming Data**:
+   - Fetch posts, reactions, and engagement metrics from public & gaming Telegram channels or other open APIs.
 2. **Complex Engagement Metrics**:   
    -  By scoring likes, comments, and views for more precise rewards.
 3. **Validate Engagement**:

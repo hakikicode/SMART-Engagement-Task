@@ -13,10 +13,11 @@ export async function audit(submission, roundNumber, submitterKey) {
       return false;
     }
 
-    const expectedHash = crypto.createHash("sha256").update(storedData).digest("hex");
-    console.log(`Expected hash: ${expectedHash}, Submitted hash: ${submission}`);
-    console.log(`[${new Date().toISOString()}] AUDIT DISTRIBUTION CALLED FOR ROUND: ${roundNumber}`);
+    // Normalize data before comparison
+    const normalizedData = JSON.stringify(JSON.parse(storedData), null, 2);
+    const expectedHash = crypto.createHash("sha256").update(normalizedData).digest("hex");
 
+    console.log(`Expected hash: ${expectedHash}, Submitted hash: ${submission}`);
 
     return expectedHash === submission;
   } catch (error) {
