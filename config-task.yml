@@ -46,7 +46,7 @@ round_time: 3000
 audit_window: 1200
 
 ## Submission Window ##
-submission_window: 1200
+submission_window: 1800
 
 ## Minimum Stake Amount ##
 minimum_stake_amount: 0.1
