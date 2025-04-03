@@ -8,8 +8,7 @@ export function distribution(submitters, bounty, roundNumber) {
     if (submitter.votes === 0) {
       distributionList[submitter.publicKey] = 0;
     } else if (submitter.votes < 0) {
-      const slashedStake = Math.floor(submitter.stake * 0.7);
-      distributionList[submitter.publicKey] = -slashedStake;
+      distributionList[submitter.publicKey] = 0;
     } else {
       approvedSubmitters.push(submitter.publicKey);
     }
