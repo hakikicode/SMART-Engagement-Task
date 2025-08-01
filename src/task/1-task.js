@@ -34,15 +34,15 @@ export async function task(roundNumber) {
   try {
     console.log(`EXECUTE TASK FOR ROUND ${roundNumber}`);
     const channels = [
-      "breakingmash",
-      "TelegramTips",
-      "tapswapaiA",
-      "battle_games_com",
-      "OKZOO_ANN",
-      "CatizenAnn",
-      "gameechannel",
-    ];
-
+  "breakingmash",
+  "TelegramTips",
+  "CryptoNewsChannel",   //  fallback – replace if needed
+  // "tapswapaiA", // Commented out
+  // "battle_games_com",
+  // "OKZOO_ANN",
+  // "CatizenAnn",
+  // "gameechannel"
+];
     let engagementData = {};
     for (const channel of channels) {
       engagementData[channel] = await fetchChannelData(channel);
