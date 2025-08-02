@@ -87,7 +87,7 @@ environment: "PRODUCTION"
 #################################### FOR UPDATING TASKS ONLY ####################################
 
 ## Old Task ID ##
-task_id: "4yjGVVMLPz4TmFrX5x24ZMrH7vYdN6zZkZytX86ca3JM"
+task_id: "AwmaHS69yxbTiCqRKkbe46dfFqvmP684eYpNL99ohmL4"
 
 ## Migration Description ##
-migrationDescription: "SMART Engagement Task validates engagement in public gaming communities and distributes rewards for accurate validation."
+migrationDescription: "SMART Engagement Task validates engagement in public and gaming communities, distributes rewards for accurate validation."
