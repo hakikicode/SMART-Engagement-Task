@@ -1,17 +1,23 @@
 import { namespaceWrapper } from "@_koii/namespace-wrapper";
 import axios from "axios";
 
-const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+const delay = (ms) => new Promise((r) => setTimeout(r, ms));
+
+const http = axios.create({
+  timeout: 10_000,
+  headers: {
+    "User-Agent": "SMART-Engagement-Task/1.0 (+koii)",
+    "Accept": "application/json",
+  },
+});
 
 async function fetchChannelData(channel, retries = 3, delayMs = 1000) {
   try {
     console.log(`Fetching data for channel: ${channel}`);
-    const response = await axios.get(
-      `https://tg.i-c-a.su/json/${channel}?limit=50`
-    );
+    const { data } = await http.get(`https://tg.i-c-a.su/json/${channel}?limit=50`);
 
-    if (response.data && response.data.messages) {
-      return response.data.messages.map((post) => ({
+    if (data && data.messages) {
+      return data.messages.map((post) => ({
         id: post.id,
         date: post.date,
         likes: post.reactions?.like || 0,
@@ -34,17 +40,19 @@ export async function task(roundNumber) {
   try {
     console.log(`EXECUTE TASK FOR ROUND ${roundNumber}`);
     const channels = [
-  "breakingmash",
-  "TelegramTips",
-  "CryptoNewsChannel",   //  fallback – replace if needed
-  // "tapswapaiA", // Commented out
-  // "battle_games_com",
-  // "OKZOO_ANN",
-  // "CatizenAnn",
-  // "gameechannel"
-];
-    let engagementData = {};
+      "breakingmash",
+      "TelegramTips",
+      "tapswapaiA",
+      "battle_games_com",
+      "OKZOO_ANN",
+      "CatizenAnn",
+      "gameechannel",
+    ];
+
+    const engagementData = {};
     for (const channel of channels) {
+      // small jitter (250–1000ms) between requests to reduce 420/403s
+      await delay(250 + Math.random() * 750);
       engagementData[channel] = await fetchChannelData(channel);
     }
 
